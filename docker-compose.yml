@@ -1,0 +1,11 @@
+version: '3.1'
+
+services:
+  portainer:
+    image: cr.portainer.io/portainer/portainer-ce:2.11.0
+    container_name: portainer
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${portainer_data_folder}/portainer_data:/data
